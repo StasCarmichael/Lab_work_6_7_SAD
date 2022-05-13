@@ -6,7 +6,6 @@ using Xunit;
 
 using DAL;
 using BLL.Entity;
-using BLL.Interface;
 using UoW.UnitWork;
 
 using Microsoft.EntityFrameworkCore;
@@ -183,9 +182,6 @@ namespace BLL.Test
                 clients = unitOfWork.Clients;
 
                 restrooms.Get().FirstOrDefault().UnreserveRestroom(restrooms.Get().FirstOrDefault().Orders.FirstOrDefault());
-
-                anticafes.GetByName("IMAS");
-                clients.GetByName("Stas");
 
                 orders.Delete(1);
                 orders.Delete(val => val.Day == 5);

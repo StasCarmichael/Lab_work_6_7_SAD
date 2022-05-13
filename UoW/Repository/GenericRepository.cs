@@ -18,7 +18,7 @@ namespace UoW.Repository
         public GenericRepository(DbContext dbContext)
         {
             this.dbContext = dbContext;
-            this.dbSet = dbContext.Set<TEntity>();
+            dbSet = dbContext.Set<TEntity>();
         }
 
         // METHODS

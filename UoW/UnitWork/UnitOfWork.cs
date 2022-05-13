@@ -1,6 +1,7 @@
 ﻿using System;
+using BLL.Entity;
+using UoW.Repository;
 using Microsoft.EntityFrameworkCore;
-using UoW.Repository.Class;
 
 namespace UoW.UnitWork
 {
@@ -8,51 +9,48 @@ namespace UoW.UnitWork
     {
         private DbContext dbContext;
 
-        private AnticafeRepository anticafes = null;
-        private RestroomRepository restrooms = null;
-        private ClientRepository clients = null;
-        private OrderRepository orders = null;
+        private IRepository<Anticafe> anticafes = null;
+        private IRepository<Restroom> restrooms = null;
+        private IRepository<Client> clients = null;
+        private IRepository<Order> orders = null;
 
 
-        public UnitOfWork(DbContext dbContext)
-        {
-            this.dbContext = dbContext;
-        }
+        public UnitOfWork(DbContext dbContext) { this.dbContext = dbContext; }
 
 
-        public AnticafeRepository Anticafes
+        public IRepository<Anticafe> Anticafes
         {
             get
             {
                 if (anticafes == null)
-                    anticafes = new AnticafeRepository(dbContext);
+                    anticafes = new GenericRepository<Anticafe>(dbContext);
                 return anticafes;
             }
         }
-        public RestroomRepository Restrooms
+        public IRepository<Restroom> Restrooms
         {
             get
             {
                 if (restrooms == null)
-                    restrooms = new RestroomRepository(dbContext);
+                    restrooms = new GenericRepository<Restroom>(dbContext);
                 return restrooms;
             }
         }
-        public ClientRepository Clients
+        public IRepository<Client> Clients
         {
             get
             {
                 if (clients == null)
-                    clients = new ClientRepository(dbContext);
+                    clients = new GenericRepository<Client>(dbContext);
                 return clients;
             }
         }
-        public OrderRepository Orders
+        public IRepository<Order> Orders
         {
             get
             {
                 if (orders == null)
-                    orders = new OrderRepository(dbContext);
+                    orders = new GenericRepository<Order>(dbContext);
                 return orders;
             }
         }

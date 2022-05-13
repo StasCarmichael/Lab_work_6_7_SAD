@@ -1,14 +1,15 @@
 ﻿using System;
-using UoW.Repository.Class;
+using BLL.Entity;
+using UoW.Repository;
 
 namespace UoW.UnitWork
 {
     public interface IUnitOfWork : IDisposable
     {
-        AnticafeRepository Anticafes { get; }
-        RestroomRepository Restrooms { get; }
-        ClientRepository Clients { get; }
-        OrderRepository Orders { get; }
+        IRepository<Anticafe> Anticafes { get; }
+        IRepository<Restroom> Restrooms { get; }
+        IRepository<Client> Clients { get; }
+        IRepository<Order> Orders { get; }
 
 
         void Save();
