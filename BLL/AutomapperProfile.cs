@@ -4,7 +4,7 @@ using AutoMapper;
 using BLL.Entity;
 using DAL.Entity;
 
-namespace Business
+namespace BLL
 {
     public class AutomapperProfile : Profile
     {

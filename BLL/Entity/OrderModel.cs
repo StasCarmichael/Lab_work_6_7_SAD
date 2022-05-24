@@ -1,13 +1,10 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-
 using BLL.Interface;
 
 namespace BLL.Entity
 {
-    public class OrderModel : IOrder
+    public class OrderModel
     {
-
         private OrderModel() { }
         internal OrderModel(double orderAmount, string typeRecreation, DateTime date, int sinceWhen, int toWhen)
         {

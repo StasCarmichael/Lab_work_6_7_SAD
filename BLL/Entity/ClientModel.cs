@@ -6,14 +6,13 @@ using BLL.Interface;
 
 namespace BLL.Entity
 {
-    public class ClientModel : IClient
+    public class ClientModel
     {
+        public ClientModel() { }
         public ClientModel(string name, string surname)
         {
             Name = name;
             Surname = surname;
-
-            Orders = new LinkedList<OrderModel>();
         }
         public ClientModel(string name, string surname, double amountOfMoney) : this(name, surname)
         {
@@ -38,18 +37,6 @@ namespace BLL.Entity
         }
 
         #endregion
-
-
-        public void AddOrder(OrderModel order) { Orders.Add(order); }
-        public bool RemoveOrder(OrderModel order) { return Orders.Remove(order); }
-        public bool RemoveOrder(int orderId)
-        {
-            var res = Orders.Where(val => val.Id == orderId).FirstOrDefault();
-            if (res != null)
-                return Orders.Remove(res);
-            else
-                return false;
-        }
 
 
         public ICollection<int> Orders { get; private set; }
