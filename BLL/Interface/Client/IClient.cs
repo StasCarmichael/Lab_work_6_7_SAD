@@ -8,8 +8,8 @@ namespace BLL.Interface
         string Name { get; set; }
         string Surname { get; set; }
 
-        void AddOrder(Order order);
-        public bool RemoveOrder(Order order);
+        void AddOrder(OrderModel order);
+        public bool RemoveOrder(OrderModel order);
         public bool RemoveOrder(int orderId);
     }
 }

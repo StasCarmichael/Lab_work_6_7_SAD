@@ -3,8 +3,8 @@ using BLL.Entity;
 
 namespace BLL.ConnectionInterface
 {
-    public interface IManyRestroomConnection
+    public interface IManyOrderConnection
     {
-        ICollection<Restroom> Restrooms { get; }
+        ICollection<OrderModel> Orders { get; }
     }
 }

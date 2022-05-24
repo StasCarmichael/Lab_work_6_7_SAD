@@ -1,8 +1,7 @@
 ﻿using System;
-using BLL.Entity;
-using UoW.Repository;
+using DAL.Entity;
 
-namespace UoW.UnitWork
+namespace DAL.Interface
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -5,11 +5,11 @@ using BLL.Interface;
 
 namespace BLL.Entity
 {
-    public class Order : IOrder
+    public class OrderModel : IOrder
     {
 
-        private Order() { }
-        internal Order(double orderAmount, string typeRecreation,  DateTime date, int sinceWhen, int toWhen)
+        private OrderModel() { }
+        internal OrderModel(double orderAmount, string typeRecreation,  DateTime date, int sinceWhen, int toWhen)
         {
             Year = date.Year;
             Month = date.Month;
@@ -23,7 +23,6 @@ namespace BLL.Entity
         }
 
 
-        [Key]
         public int Id { get; private set; }
 
 
@@ -46,10 +45,10 @@ namespace BLL.Entity
 
 
         public int ClientId { get; private set; }
-        public Client Client { get; private set; }
+        public ClientModel Client { get; private set; }
 
 
         public int RestroomId { get; private set; }
-        public Restroom Restroom { get; private set; }
+        public RestroomModel Restroom { get; private set; }
     }
 }

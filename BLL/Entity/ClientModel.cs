@@ -6,16 +6,16 @@ using BLL.Interface;
 
 namespace BLL.Entity
 {
-    public class Client : IClient
+    public class ClientModel : IClient
     {
-        public Client(string name, string surname)
+        public ClientModel(string name, string surname)
         {
             Name = name;
             Surname = surname;
 
-            Orders = new LinkedList<Order>();
+            Orders = new LinkedList<OrderModel>();
         }
-        public Client(string name, string surname, double amountOfMoney) : this(name, surname)
+        public ClientModel(string name, string surname, double amountOfMoney) : this(name, surname)
         {
             AmountOfMoney = amountOfMoney;
         }
@@ -40,8 +40,8 @@ namespace BLL.Entity
         #endregion
 
 
-        public void AddOrder(Order order) { Orders.Add(order); }
-        public bool RemoveOrder(Order order) { return Orders.Remove(order); }
+        public void AddOrder(OrderModel order) { Orders.Add(order); }
+        public bool RemoveOrder(OrderModel order) { return Orders.Remove(order); }
         public bool RemoveOrder(int orderId)
         {
             var res = Orders.Where(val => val.Id == orderId).FirstOrDefault();
@@ -52,6 +52,6 @@ namespace BLL.Entity
         }
 
 
-        public ICollection<Order> Orders { get; private set; }
+        public ICollection<OrderModel> Orders { get; private set; }
     }
 }

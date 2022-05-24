@@ -5,29 +5,29 @@ using BLL.Interface;
 
 namespace BLL.Entity
 {
-    public class Anticafe : IAnticafe
+    public class AnticafeModel : IAnticafe
     {
         private readonly double MinPricePerHour;
         private readonly double MaxPricePerHour;
         private readonly int MIN_WORK;
         private readonly int MAX_WORK;
 
-        private List<Restroom> restrooms;
+        private List<RestroomModel> restrooms;
 
 
         public int Id { get; private set; }
 
 
-        private Anticafe()
+        private AnticafeModel()
         {
             MaxPricePerHour = 10000;
             MinPricePerHour = 10;
             MIN_WORK = 0;
             MAX_WORK = 23;
 
-            restrooms = new List<Restroom>();
+            restrooms = new List<RestroomModel>();
         }
-        public Anticafe(string name, string address) : this()
+        public AnticafeModel(string name, string address) : this()
         {
             Name = name;
             Address = address;
@@ -43,14 +43,14 @@ namespace BLL.Entity
             if (workOut < workUp && workOut >= MIN_WORK && workUp <= MAX_WORK
                 && pricePerHour >= MinPricePerHour && pricePerHour <= MaxPricePerHour)
             {
-                var restroom = new Restroom(typeRecreation, pricePerHour, workOut, workUp);
+                var restroom = new RestroomModel(typeRecreation, pricePerHour, workOut, workUp);
 
                 restrooms.Add(restroom);
                 return (true, restroom);
             }
             else { return (false, null); }
         }
-        public bool RemoveRestroom(Restroom restroom) { return restrooms.Remove(restroom); }
+        public bool RemoveRestroom(RestroomModel restroom) { return restrooms.Remove(restroom); }
         public bool RemoveRestroom(int restroomId)
         {
             var restroom = restrooms.Where(val => val.Id == restroomId).FirstOrDefault();
@@ -63,11 +63,11 @@ namespace BLL.Entity
         public IRestroom GetRestroom(int restroomId) { return restrooms.Where(val => val.Id == restroomId).FirstOrDefault(); }
 
 
-        public ICollection<Restroom> Restrooms
+        public ICollection<RestroomModel> Restrooms
         {
             get
             {
-                List<Restroom> rest = new List<Restroom>();
+                List<RestroomModel> rest = new List<RestroomModel>();
 
                 foreach (var item in restrooms)
                     rest.Add(item);

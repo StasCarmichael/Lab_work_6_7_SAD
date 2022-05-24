@@ -1,9 +1,9 @@
 ﻿using System;
-using BLL.Entity;
-using UoW.Repository;
+using DAL.Entity;
+using DAL.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace UoW.UnitWork
+namespace DAL
 {
     public class UnitOfWork : IUnitOfWork
     {

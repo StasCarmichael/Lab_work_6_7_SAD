@@ -6,7 +6,6 @@ using Xunit;
 
 using DAL;
 using BLL.Entity;
-using UoW.UnitWork;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +14,7 @@ namespace BLL.Test
 {
     public class UnitTest
     {
+        /*
         [Fact]
         public void TestAddedEntityInitDb()
         {
@@ -28,12 +28,12 @@ namespace BLL.Test
                 var anticafes = unitOfWork.Anticafes;
                 var clients = unitOfWork.Clients;
 
-                Anticafe anticafe1 = new Anticafe("Somerset", "Kiev Chrechatic 32 Б");
+                AnticafeModel anticafe1 = new AnticafeModel("Somerset", "Kiev Chrechatic 32 Б");
 
 
-                Client client1 = new Client("Stas", "Kyrei", 300);
-                Client client2 = new Client("Elic", "Wise", 400);
-                Client client3 = new Client("Berni", "Clai", 200);
+                ClientModel client1 = new ClientModel("Stas", "Kyrei", 300);
+                ClientModel client2 = new ClientModel("Elic", "Wise", 400);
+                ClientModel client3 = new ClientModel("Berni", "Clai", 200);
 
 
                 var res1 = anticafe1.AddRestroom("Перегляд кіно", 200, 8, 22);
@@ -229,7 +229,7 @@ namespace BLL.Test
 
 
 
-        private static void GetInfoMessage(List<Anticafe> anticafes)
+        private static void GetInfoMessage(List<AnticafeModel> anticafes)
         {
             string anticafePass = "///////////////////////////////////////";
             string restroomPass = "+++++++++++++++++++++++++++++++++++++++";
@@ -267,5 +267,7 @@ namespace BLL.Test
                 Console.WriteLine(anticafePass);
             }
         }
+
+        */
     }
 }

@@ -9,7 +9,7 @@ namespace BLL.Interface
         string Address { get; }
 
         (bool result, IRestroom restroom) AddRestroom(string typeRecreation, double pricePerHour, int workOut, int workUp);
-        bool RemoveRestroom(Restroom restroom);
+        bool RemoveRestroom(RestroomModel restroom);
         bool RemoveRestroom(int restroomId);
 
         IRestroom GetRestroom(int restroomId);

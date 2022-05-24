@@ -6,20 +6,20 @@ using BLL.Interface;
 
 namespace BLL.Entity
 {
-    public class Restroom : IRestroom
+    public class RestroomModel : IRestroom
     {
         private static int MIN_WORK = 0;
         private static int MAX_WORK = 24;
         private static int MAX_DAY = 14;
 
 
-        private ICollection<Order> orders;
+        private ICollection<OrderModel> orders;
 
 
         public int Id { get; private set; }
 
 
-        internal Restroom(string typeRecreation, double pricePerHour, int workOut, int workUp)
+        internal RestroomModel(string typeRecreation, double pricePerHour, int workOut, int workUp)
         {
             TypeRecreation = typeRecreation;
             PricePerHour = pricePerHour;
@@ -29,7 +29,7 @@ namespace BLL.Entity
             WorkOut = workOut;
             WorkUp = workUp;
 
-            orders = new LinkedList<Order>();
+            orders = new LinkedList<OrderModel>();
         }
 
 
@@ -87,14 +87,14 @@ namespace BLL.Entity
         }
 
 
-        public (bool result, Order order) ReserveSpecialProgramRestroom(IClient client, string namePersonalProgram, DateTime dateTime)
+        public (bool result, OrderModel order) ReserveSpecialProgramRestroom(IClient client, string namePersonalProgram, DateTime dateTime)
         {
             if ((dateTime - DateTime.Now).TotalDays <= MAX_DAY)
             {
                 var schedule = GetSchedule(dateTime);
                 if (schedule == null || schedule.Count == 0)
                 {
-                    var order = new Order((WorkUp - WorkOut) * PricePerHour, namePersonalProgram, dateTime, WorkOut, WorkUp);
+                    var order = new OrderModel((WorkUp - WorkOut) * PricePerHour, namePersonalProgram, dateTime, WorkOut, WorkUp);
 
                     client.AddOrder(order);
                     orders.Add(order);
@@ -105,7 +105,7 @@ namespace BLL.Entity
 
             return (false, null);
         }
-        public (bool result, Order order) ReserveRestroom(IClient client, DateTime dateTime, int workOut, int workUp)
+        public (bool result, OrderModel order) ReserveRestroom(IClient client, DateTime dateTime, int workOut, int workUp)
         {
             if ((dateTime - DateTime.Now).TotalDays <= MAX_DAY && workOut >= WorkOut && workUp <= WorkUp && workOut < workUp)
             {
@@ -123,7 +123,7 @@ namespace BLL.Entity
                     }
 
                     var price = (workUp - workOut) * PricePerHour;
-                    Order order = new Order(price, TypeRecreation, dateTime, workOut, workUp);
+                    OrderModel order = new OrderModel(price, TypeRecreation, dateTime, workOut, workUp);
 
                     orders.Add(order);
                     client.AddOrder(order);
@@ -134,12 +134,7 @@ namespace BLL.Entity
 
             return (false, null);
         }
-        public bool UnreserveRestroom(Order order)
-        {
-            order.Client.RemoveOrder(order);
-            var result = Orders.Remove(order);
-            return result;
-        }
+
         public bool UnreserveRestroom(int orderId)
         {
             var order = Orders.ToList().Where(val => val.Id == orderId).FirstOrDefault();
@@ -156,11 +151,11 @@ namespace BLL.Entity
         public IOrder GetOrder(int orderId) => Orders.Where(val => val.Id == orderId).FirstOrDefault();
 
 
-        public ICollection<Order> Orders
+        public ICollection<OrderModel> Orders
         {
             get
             {
-                var list = new List<Order>();
+                var list = new List<OrderModel>();
                 foreach (var item in orders)
                     list.Add(item);
 
@@ -170,6 +165,6 @@ namespace BLL.Entity
 
 
         public int AnticafeId { get; private set; }
-        public Anticafe Anticafe { get; private set; }
+        public AnticafeModel Anticafe { get; private set; }
     }
 }

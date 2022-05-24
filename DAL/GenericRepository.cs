@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
+using DAL.Interface;
+using DAL.Entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace UoW.Repository
+namespace DAL
 {
-    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         // узагальнений контекст
         protected DbContext dbContext;
@@ -20,6 +22,7 @@ namespace UoW.Repository
             this.dbContext = dbContext;
             dbSet = dbContext.Set<TEntity>();
         }
+
 
         // METHODS
         public virtual int Count() { return dbSet.Count(); }

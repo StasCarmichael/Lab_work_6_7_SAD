@@ -11,10 +11,10 @@ namespace DAL
         private string connectionString;
 
 
-        public DbSet<Anticafe> Anticafes { get; set; }
-        public DbSet<Restroom> Restrooms { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<Client> Clients { get; set; }
+        public DbSet<AnticafeModel> Anticafes { get; set; }
+        public DbSet<RestroomModel> Restrooms { get; set; }
+        public DbSet<OrderModel> Orders { get; set; }
+        public DbSet<ClientModel> Clients { get; set; }
 
 
         public ApplicationContext()

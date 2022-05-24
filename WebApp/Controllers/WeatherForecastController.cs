@@ -35,5 +35,12 @@ namespace WebApp.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet("{data}")]
+        public IEnumerable<int> Getdata(int[] data)
+        {
+            var rng = new Random();
+            return data;
+        }
     }
 }
