@@ -151,20 +151,9 @@ namespace BLL.Entity
         public IOrder GetOrder(int orderId) => Orders.Where(val => val.Id == orderId).FirstOrDefault();
 
 
-        public ICollection<OrderModel> Orders
-        {
-            get
-            {
-                var list = new List<OrderModel>();
-                foreach (var item in orders)
-                    list.Add(item);
-
-                return list;
-            }
-        }
+        public ICollection<int> Orders { get; private set; }       
 
 
         public int AnticafeId { get; private set; }
-        public AnticafeModel Anticafe { get; private set; }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using BLL.ConnectionInterface;
+
 
 namespace BLL.Interface
 {
-    public interface IRestroom : IIdable, IManyOrderConnection, IReservable, ISingleAnticafeConnection
+    public interface IRestroom : IIdable, IReservable
     {
         string TypeRecreation { get; }
 

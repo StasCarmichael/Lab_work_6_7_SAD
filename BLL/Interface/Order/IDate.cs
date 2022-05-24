@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace BLL.Interface
 {
     public interface IDate
@@ -6,8 +7,6 @@ namespace BLL.Interface
         int SinceWhen { get; }
         int ToWhen { get; }
 
-        int Year { get; }
-        int Month { get; }
-        int Day { get; }
+        DateTime Date { get; }
     }
 }

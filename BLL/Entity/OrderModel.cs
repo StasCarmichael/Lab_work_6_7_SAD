@@ -9,12 +9,9 @@ namespace BLL.Entity
     {
 
         private OrderModel() { }
-        internal OrderModel(double orderAmount, string typeRecreation,  DateTime date, int sinceWhen, int toWhen)
+        internal OrderModel(double orderAmount, string typeRecreation, DateTime date, int sinceWhen, int toWhen)
         {
-            Year = date.Year;
-            Month = date.Month;
-            Day = date.Day;
-
+            Date = date;
             SinceWhen = sinceWhen;
             ToWhen = toWhen;
 
@@ -30,25 +27,17 @@ namespace BLL.Entity
         public double OrderAmount { get; private set; }
 
 
-        public int Year { get; private set; }
-        public int Month { get; private set; }
-        public int Day { get; private set; }
+        public DateTime Date { get; private set; }
 
         public int SinceWhen { get; private set; }
         public int ToWhen { get; private set; }
 
 
-        public ITimeInterval GetTimeInterval()
-        {
-            return new TimeInterval(Year, Month, Day, SinceWhen, ToWhen);
-        }
+        public ITimeInterval GetTimeInterval() { return new TimeInterval(Date, SinceWhen, ToWhen); }
 
 
         public int ClientId { get; private set; }
-        public ClientModel Client { get; private set; }
-
 
         public int RestroomId { get; private set; }
-        public RestroomModel Restroom { get; private set; }
     }
 }

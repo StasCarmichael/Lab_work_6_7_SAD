@@ -12,8 +12,6 @@ namespace BLL.Entity
         private readonly int MIN_WORK;
         private readonly int MAX_WORK;
 
-        private List<RestroomModel> restrooms;
-
 
         public int Id { get; private set; }
 
@@ -24,8 +22,6 @@ namespace BLL.Entity
             MinPricePerHour = 10;
             MIN_WORK = 0;
             MAX_WORK = 23;
-
-            restrooms = new List<RestroomModel>();
         }
         public AnticafeModel(string name, string address) : this()
         {
@@ -63,18 +59,6 @@ namespace BLL.Entity
         public IRestroom GetRestroom(int restroomId) { return restrooms.Where(val => val.Id == restroomId).FirstOrDefault(); }
 
 
-        public ICollection<RestroomModel> Restrooms
-        {
-            get
-            {
-                List<RestroomModel> rest = new List<RestroomModel>();
-
-                foreach (var item in restrooms)
-                    rest.Add(item);
-
-
-                return rest;
-            }
-        }
+        public ICollection<int> Restrooms{ get; set; }
     }
 }

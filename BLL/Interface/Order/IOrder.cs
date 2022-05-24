@@ -1,9 +1,7 @@
-﻿using BLL.ConnectionInterface;
-
-namespace BLL.Interface
+﻿namespace BLL.Interface
 {
-    public interface IOrder : IIdable, IDate, ISingleClientConnection, ISingleRestroomConnection
-    {
+    public interface IOrder : IIdable, IDate 
+    { 
         string TypeRecreation { get; }
         double OrderAmount { get; }
 

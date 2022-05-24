@@ -1,9 +1,8 @@
 ﻿using BLL.Entity;
-using BLL.ConnectionInterface;
 
 namespace BLL.Interface
 {
-    public interface IAnticafe : IIdable, IManyRestroomConnection
+    public interface IAnticafe : IIdable
     {
         string Name { get; set; }
         string Address { get; }

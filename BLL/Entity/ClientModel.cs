@@ -52,6 +52,6 @@ namespace BLL.Entity
         }
 
 
-        public ICollection<OrderModel> Orders { get; private set; }
+        public ICollection<int> Orders { get; private set; }
     }
 }
