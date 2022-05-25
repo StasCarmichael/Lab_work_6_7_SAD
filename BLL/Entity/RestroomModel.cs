@@ -23,15 +23,15 @@ namespace BLL.Entity
         }
 
         public int Id { get; private set; }
-        public string TypeRecreation { get; private set; }
+        public string TypeRecreation { get; set; }
 
-        public int WorkOut { get; private set; }
-        public int WorkUp { get; private set; }
+        public int WorkOut { get; set; }
+        public int WorkUp { get; set; }
         public double PricePerHour { get; set; }
 
 
-        public ICollection<int> Orders { get; private set; }
+        public ICollection<int> Orders { get; set; }
 
-        public int AnticafeId { get; private set; }
+        public int AnticafeId { get; set; }
     }
 }

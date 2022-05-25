@@ -28,7 +28,7 @@ namespace BLL.Entity
 
         #region Account
 
-        public double AmountOfMoney { get; private set; }
+        public double AmountOfMoney { get; set; }
         public void PutMoney(double sum) { AmountOfMoney += sum; }
         public bool WithdrawMoney(double sum)
         {

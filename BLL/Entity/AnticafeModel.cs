@@ -19,7 +19,7 @@ namespace BLL.Entity
         }
 
         public string Name { get; set; }
-        public string Address { get; private set; }
+        public string Address { get; set; }
 
 
         public ICollection<int> Restrooms { get; set; }

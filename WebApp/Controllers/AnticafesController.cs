@@ -2,30 +2,32 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BLL.Entity;
 using BLL.Services;
 using BLL.ServicesInterface;
+
 
 namespace WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientsController : ControllerBase
+    public class AnticafesController : ControllerBase
     {
-        private readonly IClientsService clientsService;
+        private readonly IAnticafesService anticafesService;
 
-        public ClientsController(IClientsService clientsService)
+        public AnticafesController(IAnticafesService anticafesService)
         {
-            this.clientsService = clientsService;
+            this.anticafesService = anticafesService;
         }
 
 
         [HttpGet]
-        public ActionResult<IEnumerable<ClientModel>> GetClient()
+        public ActionResult<IEnumerable<AnticafeModel>> GetAnticafe()
         {
             try
             {
-                return Ok(clientsService.GetAllClient());
+                return Ok(anticafesService.GetAnticafe());
             }
             catch (Exception)
             {
@@ -34,11 +36,11 @@ namespace WebApp.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ClientModel> GetClientbyId(int id)
+        public ActionResult<AnticafeModel> GetAnticafebyId(int id)
         {
             try
             {
-                return Ok(clientsService.GetClientbyId(id));
+                return Ok(anticafesService.GetAnticafe(id));
             }
             catch (Exception)
             {
@@ -47,11 +49,11 @@ namespace WebApp.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteClient(int id)
+        public ActionResult DeleteAnticafe(int id)
         {
             try
             {
-                clientsService.RemoveClient(id);
+                anticafesService.RemoveAnticafe(id);
                 return Ok();
             }
             catch (Exception)
@@ -61,11 +63,11 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddClient([FromBody] ClientModel model)
+        public ActionResult AddAnticafe([FromBody] AnticafeModel model)
         {
             try
             {
-                clientsService.AddClient(model);
+                anticafesService.AddAnticafe(model.Name, model.Address);
                 return Ok();
             }
             catch (Exception)
@@ -73,5 +75,6 @@ namespace WebApp.Controllers
                 return BadRequest();
             }
         }
+
     }
 }

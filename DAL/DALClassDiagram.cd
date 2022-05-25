@@ -3,18 +3,18 @@
   <Class Name="DAL.ApplicationContext">
     <Position X="4" Y="3.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAQAAAAgAACAQAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAACAQAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>ApplicationContext.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Anticafes" />
-      <Property Name="Clients" />
-      <Property Name="Orders" />
       <Property Name="Restrooms" />
+      <Property Name="Orders" />
+      <Property Name="Clients" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Microsoft.EntityFrameworkCore.DbSet&lt;TEntity&gt;">
-    <Position X="8.25" Y="1.75" Width="2.5" />
+    <Position X="7.75" Y="1.75" Width="2.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>

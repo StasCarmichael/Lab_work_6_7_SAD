@@ -3,11 +3,12 @@ using DAL.Entity;
 using DAL.Interface;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace DAL
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private DbContext dbContext;
+        private ApplicationContext dbContext;
 
         private IRepository<Anticafe> anticafes = null;
         private IRepository<Restroom> restrooms = null;
@@ -15,7 +16,7 @@ namespace DAL
         private IRepository<Order> orders = null;
 
 
-        public UnitOfWork(DbContext dbContext) { this.dbContext = dbContext; }
+        public UnitOfWork(ApplicationContext dbContext) { this.dbContext = dbContext; }
 
 
         public IRepository<Anticafe> Anticafes

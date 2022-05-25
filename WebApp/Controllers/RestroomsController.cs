@@ -2,30 +2,32 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BLL.Entity;
 using BLL.Services;
 using BLL.ServicesInterface;
+
 
 namespace WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientsController : ControllerBase
+    public class RestroomsController : ControllerBase
     {
-        private readonly IClientsService clientsService;
+        private readonly IRestroomsService restroomsService;
 
-        public ClientsController(IClientsService clientsService)
+        public RestroomsController(IRestroomsService restroomsService)
         {
-            this.clientsService = clientsService;
+            this.restroomsService = restroomsService;
         }
 
 
         [HttpGet]
-        public ActionResult<IEnumerable<ClientModel>> GetClient()
+        public ActionResult<IEnumerable<RestroomModel>> GetRestroom()
         {
             try
             {
-                return Ok(clientsService.GetAllClient());
+                return Ok(restroomsService.GetRestroom());
             }
             catch (Exception)
             {
@@ -34,11 +36,11 @@ namespace WebApp.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ClientModel> GetClientbyId(int id)
+        public ActionResult<RestroomModel> GetRestroombyId(int id)
         {
             try
             {
-                return Ok(clientsService.GetClientbyId(id));
+                return Ok(restroomsService.GetRestroom(id));
             }
             catch (Exception)
             {
@@ -47,11 +49,11 @@ namespace WebApp.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteClient(int id)
+        public ActionResult DeleteRestroom(int id)
         {
             try
             {
-                clientsService.RemoveClient(id);
+                restroomsService.RemoveRestroom(id);
                 return Ok();
             }
             catch (Exception)
@@ -60,12 +62,12 @@ namespace WebApp.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult AddClient([FromBody] ClientModel model)
+        [HttpPost("{anticafeId}")]
+        public ActionResult AddRestroom(int anticafeId, [FromBody] RestroomModel model)
         {
             try
             {
-                clientsService.AddClient(model);
+                restroomsService.AddRestroom(anticafeId, model.TypeRecreation, model.PricePerHour, model.WorkOut, model.WorkUp);
                 return Ok();
             }
             catch (Exception)
