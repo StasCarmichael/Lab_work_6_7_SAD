@@ -5,10 +5,9 @@ using BLL.Interface;
 
 namespace BLL.Entity
 {
-    public class AnticafeModel 
+    public class AnticafeModel : IIdable
     {
-         public int Id { get; private set; }
-
+        public int Id { get; private set; }
 
         private AnticafeModel()
         {
@@ -19,11 +18,10 @@ namespace BLL.Entity
             Address = address;
         }
 
-
         public string Name { get; set; }
         public string Address { get; private set; }
 
 
-        public ICollection<int> Restrooms{ get; set; }
+        public ICollection<int> Restrooms { get; set; }
     }
 }

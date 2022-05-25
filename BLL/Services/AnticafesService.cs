@@ -12,7 +12,7 @@ using AutoMapper;
 
 namespace BLL.Services
 {
-    public class AnticafeService : IAnticafeService
+    public class AnticafesService : IAnticafesService
     {
         private readonly double MinPricePerHour;
         private readonly double MaxPricePerHour;
@@ -22,7 +22,7 @@ namespace BLL.Services
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
 
-        public AnticafeService(IUnitOfWork unitOfWork, IMapper mapper)
+        public AnticafesService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             MaxPricePerHour = 10000;
             MinPricePerHour = 10;

@@ -3,7 +3,7 @@ using BLL.Interface;
 
 namespace BLL.Entity
 {
-    public class OrderModel
+    public class OrderModel : IIdable
     {
         private OrderModel() { }
         internal OrderModel(double orderAmount, string typeRecreation, DateTime date, int sinceWhen, int toWhen)

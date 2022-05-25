@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.ServicesInterface
 {
-    public interface IRestroomService
+    public interface IClientsService
     {
     }
 }

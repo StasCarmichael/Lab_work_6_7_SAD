@@ -6,7 +6,7 @@ using BLL.Interface;
 
 namespace BLL.Entity
 {
-    public class ClientModel
+    public class ClientModel : IIdable
     {
         public ClientModel() { }
         public ClientModel(string name, string surname)

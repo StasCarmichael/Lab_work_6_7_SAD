@@ -12,34 +12,15 @@ using AutoMapper;
 
 namespace BLL.Services
 {
-    public class ClientService : IClientService
+    public class ClientsService : IClientsService
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
 
-        public ClientService(IUnitOfWork unitOfWork, IMapper mapper)
+        public ClientsService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
-        }
-
-
-        public void AddOrder(int clientId, OrderModel order)
-        {
-            var res = mapper.Map<OrderModel, Order>(order);
-            unitOfWork.Orders.Add(res);
-            unitOfWork.Clients.Get(clientId).Orders.Add(res);
-            unitOfWork.Save();
-        }
-        public void RemoveOrder(int orderId)
-        {
-            unitOfWork.Orders.Delete(val => val.Id == orderId);
-            unitOfWork.Save();
-        }
-        public OrderModel GetOrder(int orderId)
-        {
-            var res = unitOfWork.Orders.Get(val => val.Id == orderId).FirstOrDefault();
-            return mapper.Map<Order, OrderModel>(res);
         }
 
 

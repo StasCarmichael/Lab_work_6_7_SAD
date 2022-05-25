@@ -39,9 +39,9 @@ namespace WebApp
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-            services.AddTransient<IAnticafeService, AnticafeService>();
-            services.AddTransient<IRestroomService, RestroomService>();
-            services.AddTransient<IClientService, ClientService>();
+            services.AddTransient<IAnticafesService, AnticafesService>();
+            services.AddTransient<IRestroomsService, RestroomsService>();
+            services.AddTransient<IClientsService, ClientsService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
