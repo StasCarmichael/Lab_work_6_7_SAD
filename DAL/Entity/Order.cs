@@ -9,7 +9,7 @@ namespace DAL.Entity
         public double OrderAmount { get; set; }
 
 
-        public DateTime When { get; set; }
+        public DateTime Date { get; set; }
 
 
         public int SinceWhen { get; set; }
