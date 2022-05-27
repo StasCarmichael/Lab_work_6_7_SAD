@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.UnitOfWork">
+    <Position X="7" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAMAAIABACAAAAAAASAQAAAgEAAAAAAAAAAAAgAAAAI=</HashCode>
+      <FileName>UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Anticafes" />
+      <Property Name="Clients" />
+      <Property Name="Orders" />
+      <Property Name="Restrooms" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DAL.GenericRepository&lt;TEntity&gt;">
+    <Position X="10.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAQAAAAQAAAEAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>GenericRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dbSet" />
+      <Field Name="dbContext" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.EntityFrameworkCore.DbSet&lt;TEntity&gt;" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.EntityFrameworkCore.DbContext" Collapsed="true">
+    <Position X="14.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="DAL.Interface.IRepository&lt;T&gt;">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAQAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interface\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DAL.Interface.IUnitOfWork">
+    <Position X="7" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAIAAAAAAAAAAACAQAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Interface\IUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Anticafes" />
+      <Property Name="Clients" />
+      <Property Name="Orders" />
+      <Property Name="Restrooms" />
+    </ShowAsAssociation>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
